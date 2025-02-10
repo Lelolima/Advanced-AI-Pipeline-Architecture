@@ -101,16 +101,11 @@ Este projeto está licenciado sob licença MIT. Consulte o arquivo LICENSE para 
 Contato
 Para mais informações ou dúvidas, entre em contato:
 
-E-mail: seu -email @exemplo .com
-LinkedIn: Seu perfil no LinkedIn
-GitHub: Seu Perfil no GitHub
-arduino
+E-mail: seu -email: lelolima806@gmail.com
+LinkedIn: wellington-de-lima-catarina
+GitHub: Lelolima
 
-Copiar
 
-Editar
-
-Esta estrutura de README oferece uma visão abrangente do projeto, descrevendo suas funcionalidades, competências e instruções para execução, facilitando o entendimento e a colaboração por outros desenvolvedores.
 
 
 
