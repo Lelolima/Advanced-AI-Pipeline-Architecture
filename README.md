@@ -65,7 +65,7 @@ bater
 Copiar
 
 Editar
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/Lelolima/Advanced-AI-Pipeline
 cd nome-do-repositorio
 Instalar as Dependências:
 
