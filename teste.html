@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste Simples</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      font-family: system-ui, sans-serif;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: rgba(99, 102, 241, 0.2);
+      border: 2px solid #334155;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: scale(1.03); border-color: #60a5fa; }
+    .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .desc { color: #cbd5e1; font-size: 0.875rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <h1>🧠 Advanced AI Pipeline</h1>
+  <p style="text-align:center;color:#94a3b8;margin-bottom:2rem;">
+    Arquitetura multimodal: CNN, LLM, RNN
+  </p>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">📄</div>
+      <div class="title">Input Data</div>
+      <div class="desc">Camada de entrada multimodal</div>
+    </div>
+    <div class="card">
+      <div class="icon">👁️</div>
+      <div class="title">CNN</div>
+      <div class="desc">Rede neural convolucional</div>
+    </div>
+    <div class="card">
+      <div class="icon">💬</div>
+      <div class="title">LLM</div>
+      <div class="desc">Modelo de linguagem</div>
+    </div>
+    <div class="card">
+      <div class="icon">🕸️</div>
+      <div class="title">RNN</div>
+      <div class="desc">Rede recorrente</div>
+    </div>
+    <div class="card">
+      <div class="icon">🔗</div>
+      <div class="title">Integration</div>
+      <div class="desc">Fusão multimodal</div>
+    </div>
+    <div class="card">
+      <div class="icon">⚡</div>
+      <div class="title">Output</div>
+      <div class="desc">Predições finais</div>
+    </div>
+  </div>
+  <script>
+    console.log('HTML puro carregado com sucesso!');
+    console.log('Se você está vendo os cards acima, o problema está no React/Vite');
+  </script>
+</body>
+</html>

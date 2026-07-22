@@ -1,0 +1,49 @@
+# backend/requirements.txt
+# Backend Python - Advanced AI Pipeline
+
+# API Framework
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.6
+
+# Deep Learning frameworks (escolha um)
+tensorflow>=2.15.0
+# torch>=2.1.0
+# torchvision>=0.16.0
+
+# NLP e LLM
+transformers>=4.36.0
+tokenizers>=0.15.0
+sentencepiece>=0.1.99
+
+# Visão computacional
+opencv-python>=4.8.0
+opencv-python-headless>=4.8.0
+pillow>=10.0.0
+
+# Processamento de texto
+nltk>=3.8.0
+spacy>=3.7.0
+
+# Visualização de dados
+matplotlib>=3.8.0
+seaborn>=0.13.0
+plotly>=5.18.0
+
+# Manipulação de dados
+numpy>=1.24.0
+pandas>=2.1.0
+scikit-learn>=1.3.0
+
+# Utilitários
+tqdm>=4.66.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+
+# Testes
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Jupyter (opcional para notebooks)
+jupyter>=1.0.0
+ipykernel>=6.26.0
