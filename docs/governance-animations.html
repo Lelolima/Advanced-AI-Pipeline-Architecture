@@ -2,291 +2,195 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>SVGs Animados - Task Governance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced AI Pipeline - Animações de Governança</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #0f172a;
+      color: #f8fafc;
+    }
+    h1 {
+      text-align: center;
+      background: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    h2 { color: #94a3b8; border-bottom: 1px solid #334155; padding-bottom: 0.5rem; margin-top: 2rem; }
+    .demo-card {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid #334155;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1rem auto;
+    }
+  </style>
 </head>
 <body>
+  <h1>🎬 Advanced AI Pipeline - Animações</h1>
+  <p style="text-align: center; color: #64748b;">Demonstrações animadas do fluxo de governança</p>
 
-<!-- SVG 1: Fluxo de Estados -->
-<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1a73e8;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#4285f4;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fbbf24;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#db2777;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="gradient5" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
-    </linearGradient>
-  </defs>
+  <h2>📊 Task Governance State Flow</h2>
+  <div class="demo-card">
+    <svg width="800" height="280" viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#3b82f6"/><stop offset="100%" style="stop-color:#2563eb"/></linearGradient>
+        <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#f59e0b"/><stop offset="100%" style="stop-color:#d97706"/></linearGradient>
+        <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#ec4899"/><stop offset="100%" style="stop-color:#db2777"/></linearGradient>
+        <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#6366f1"/><stop offset="100%" style="stop-color:#4f46e5"/></linearGradient>
+        <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#10b981"/><stop offset="100%" style="stop-color:#059669"/></linearGradient>
+      </defs>
+      <rect width="800" height="280" fill="#1e293b" rx="12"/>
+      <text x="400" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#e2e8f0">🔄 Task Governance State Flow</text>
+      <g transform="translate(40, 70)">
+        <rect width="130" height="50" rx="8" fill="url(#g1)" opacity="0.2"><animate attributeName="opacity" values="0.2;0.4;0.2" dur="2s" repeatCount="indefinite"/></rect>
+        <text x="65" y="30" text-anchor="middle" font-size="13" font-weight="600" fill="#60a5fa">Active</text>
+      </g>
+      <g transform="translate(200, 70)">
+        <rect width="130" height="50" rx="8" fill="url(#g2)" opacity="0.2"><animate attributeName="opacity" values="0.2;0.4;0.2" dur="2s" begin="0.3s" repeatCount="indefinite"/></rect>
+        <text x="65" y="30" text-anchor="middle" font-size="13" font-weight="600" fill="#fbbf24">Planned</text>
+      </g>
+      <g transform="translate(360, 70)">
+        <rect width="130" height="50" rx="8" fill="url(#g3)" opacity="0.2"/>
+        <circle cx="65" cy="25" r="18" fill="none" stroke="#f472b6" stroke-width="2"><animate attributeName="r" values="15;22;15" dur="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.4;1" dur="1.5s" repeatCount="indefinite"/></circle>
+        <text x="65" y="30" text-anchor="middle" font-size="13" font-weight="600" fill="#f472b6">Awaiting</text>
+      </g>
+      <g transform="translate(520, 70)">
+        <rect width="130" height="50" rx="8" fill="url(#g4)" opacity="0.2"><animate attributeName="opacity" values="0.2;0.5;0.2" dur="1s" repeatCount="indefinite"/></rect>
+        <text x="65" y="30" text-anchor="middle" font-size="13" font-weight="600" fill="#818cf8">Executing</text>
+      </g>
+      <g transform="translate(200, 170)">
+        <rect width="130" height="50" rx="8" fill="url(#g5)" opacity="0.2"/>
+        <text x="65" y="28" text-anchor="middle" font-size="13" font-weight="600" fill="#34d399">✓ Validated</text>
+        <path d="M95 22 L100 27 L110 17" stroke="#34d399" stroke-width="2.5" fill="none"/>
+      </g>
+      <g transform="translate(520, 170)">
+        <rect width="130" height="50" rx="8" fill="#475569" opacity="0.3"/>
+        <text x="65" y="30" text-anchor="middle" font-size="13" font-weight="600" fill="#94a3b8">🔒 Closed</text>
+      </g>
+      <g stroke="#64748b" stroke-width="2" fill="none">
+        <path d="M170 95 L195 95"><animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" repeatCount="indefinite"/></path><polygon points="195,95 185,90 185,100" fill="#64748b"/>
+        <path d="M330 95 L355 95"><animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" begin="0.3s" repeatCount="indefinite"/></path><polygon points="355,95 345,90 345,100" fill="#64748b"/>
+        <path d="M490 95 L515 95"><animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" begin="0.6s" repeatCount="indefinite"/></path><polygon points="515,95 505,90 505,100" fill="#64748b"/>
+        <path d="M585 120 L585 160 L540 170" stroke-dasharray="5,5"/><polygon points="540,170 545,160 545,175" fill="#64748b"/>
+        <path d="M330 195 L195 195"/><polygon points="195,195 205,190 205,200" fill="#64748b"/>
+        <path d="M440 60 Q440 35 400 35 L380 35" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,4" fill="none"/><polygon points="380,35 390,30 390,40" fill="#f59e0b"/>
+      </g>
+    </svg>
+  </div>
 
-  <!-- Título -->
-  <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e293b">🔄 Task Governance State Flow</text>
+  <h2>🔒 Approval Gate</h2>
+  <div class="demo-card">
+    <svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="200" fill="#1e293b" rx="12"/>
+      <text x="400" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#e2e8f0">🔒 Approval Gate</text>
+      <rect x="200" y="60" width="400" height="100" rx="10" fill="#0f172a" stroke="#ef4444" stroke-width="2.5"/>
+      <g transform="translate(380, 85)">
+        <rect x="5" y="20" width="30" height="25" rx="3" fill="#dc2626"/>
+        <path d="M12 20 V10 A8 8 0 0 1 28 10 V20" stroke="#dc2626" stroke-width="3" fill="none"/>
+        <animateTransform attributeName="transform" type="translate" values="380,85; 380,88; 380,85" dur="2s" repeatCount="indefinite"/>
+      </g>
+      <text x="400" y="130" text-anchor="middle" font-size="13" fill="#fca5a5" font-weight="600">⚠️ Ação Requer Aprovação Explícita</text>
+      <rect x="260" y="145" width="280" height="25" rx="6" fill="rgba(59, 130, 246, 0.1)"/>
+      <text x="400" y="163" text-anchor="middle" font-size="11" fill="#60a5fa" font-family="monospace">"implemente" | "execute o plano" | "aprovo"</text>
+      <circle cx="400" cy="110" r="70" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.3">
+        <animate attributeName="r" values="50;90;50" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.4;0;0.4" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+  </div>
 
-  <!-- State boxes -->
-  <g id="active" transform="translate(50, 80)">
-    <rect width="140" height="60" rx="8" fill="url(#gradient1)" opacity="0.2">
-      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="2s" repeatCount="indefinite" />
-    </rect>
-    <text x="70" y="35" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a73e8">Active</text>
-  </g>
+  <h2>👥 Safe Delegation Pattern</h2>
+  <div class="demo-card">
+    <svg width="800" height="260" viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="260" fill="#1e293b" rx="12"/>
+      <text x="400" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#e2e8f0">👥 Safe Delegation Pattern</text>
+      <rect x="350" y="60" width="100" height="45" rx="8" fill="#1a73e8"/>
+      <text x="400" y="88" text-anchor="middle" font-size="12" font-weight="600" fill="white">Coordinator</text>
+      <g>
+        <rect x="50" y="150" width="140" height="50" rx="8" fill="#10b981" opacity="0.9"/>
+        <text x="120" y="170" text-anchor="middle" font-size="11" font-weight="600" fill="white">Agent 1</text>
+        <text x="120" y="187" text-anchor="middle" font-size="10" fill="#d1fae5">Task A</text>
+        <animateTransform attributeName="transform" type="translate" values="0,0 5,0 0,0" dur="2s" repeatCount="indefinite"/>
+      </g>
+      <g>
+        <rect x="330" y="150" width="140" height="50" rx="8" fill="#f59e0b" opacity="0.9"/>
+        <text x="400" y="170" text-anchor="middle" font-size="11" font-weight="600" fill="white">Agent 2</text>
+        <text x="400" y="187" text-anchor="middle" font-size="10" fill="#fef3c7">Task B</text>
+        <animateTransform attributeName="transform" type="translate" values="0,0 5,0 0,0" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+      </g>
+      <g>
+        <rect x="610" y="150" width="140" height="50" rx="8" fill="#8b5cf6" opacity="0.9"/>
+        <text x="680" y="170" text-anchor="middle" font-size="11" font-weight="600" fill="white">Agent 3</text>
+        <text x="680" y="187" text-anchor="middle" font-size="10" fill="#ede9fe">Task C</text>
+        <animateTransform attributeName="transform" type="translate" values="0,0 5,0 0,0" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+      </g>
+      <rect x="350" y="210" width="100" height="40" rx="8" fill="#059669"/>
+      <text x="400" y="235" text-anchor="middle" font-size="11" font-weight="600" fill="white">✅ Verify</text>
+      <g stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="4,3">
+        <line x1="400" y1="105" x2="120" y2="150"/><line x1="400" y1="105" x2="400" y2="150"/><line x1="400" y1="105" x2="680" y2="150"/>
+        <line x1="120" y1="200" x2="400" y2="210"/><line x1="400" y1="200" x2="400" y2="210"/><line x1="680" y1="200" x2="450" y2="210"/>
+      </g>
+    </svg>
+  </div>
 
-  <g id="planned" transform="translate(240, 80)">
-    <rect width="140" height="60" rx="8" fill="url(#gradient2)" opacity="0.2">
-      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="2s" begin="0.4s" repeatCount="indefinite" />
-    </rect>
-    <text x="70" y="35" text-anchor="middle" font-size="14" font-weight="bold" fill="#d97706">Planned</text>
-  </g>
+  <h2>✅ Validation Pipeline</h2>
+  <div class="demo-card">
+    <svg width="800" height="240" viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="240" fill="#1e293b" rx="12"/>
+      <text x="400" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#e2e8f0">✅ Validation Pipeline</text>
+      <g transform="translate(35, 70)">
+        <rect width="140" height="70" rx="8" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="2"/>
+        <text x="70" y="30" text-anchor="middle" font-size="12" font-weight="600" fill="#60a5fa">Type Check</text>
+        <text x="70" y="50" text-anchor="middle" font-size="10" fill="#94a3b8">TypeScript</text>
+        <circle cx="125" cy="18" r="12" fill="#10b981"/>
+        <path d="M120 18 L123 21 L129 15" stroke="white" stroke-width="2" fill="none"/>
+      </g>
+      <g transform="translate(210, 70)">
+        <rect width="140" height="70" rx="8" fill="rgba(245, 158, 11, 0.2)" stroke="#f59e0b" stroke-width="2"/>
+        <text x="70" y="30" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">Lint Check</text>
+        <text x="70" y="50" text-anchor="middle" font-size="10" fill="#94a3b8">ESLint</text>
+        <circle cx="125" cy="18" r="12" fill="#10b981"/>
+        <path d="M120 18 L123 21 L129 15" stroke="white" stroke-width="2" fill="none"/>
+      </g>
+      <g transform="translate(385, 70)">
+        <rect width="140" height="70" rx="8" fill="rgba(236, 72, 153, 0.2)" stroke="#ec4899" stroke-width="2"/>
+        <text x="70" y="30" text-anchor="middle" font-size="12" font-weight="600" fill="#f472b6">Test Run</text>
+        <text x="70" y="50" text-anchor="middle" font-size="10" fill="#94a3b8">Vitest</text>
+        <circle cx="125" cy="18" r="12" fill="#10b981"/>
+        <path d="M120 18 L123 21 L129 15" stroke="white" stroke-width="2" fill="none"/>
+      </g>
+      <g transform="translate(560, 70)">
+        <rect width="140" height="70" rx="8" fill="rgba(5, 150, 105, 0.2)" stroke="#059669" stroke-width="2"/>
+        <text x="70" y="30" text-anchor="middle" font-size="12" font-weight="600" fill="#34d399">Build</text>
+        <text x="70" y="50" text-anchor="middle" font-size="10" fill="#94a3b8">Production</text>
+        <circle cx="125" cy="18" r="12" fill="#10b981"><animate attributeName="r" values="10;14;10" dur="1.5s" repeatCount="indefinite"/></circle>
+        <path d="M120 18 L123 21 L129 15" stroke="white" stroke-width="2" fill="none"/>
+      </g>
+      <g stroke="#64748b" stroke-width="2.5" fill="none">
+        <path d="M175 105 L205 105"><animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" repeatCount="indefinite"/></path><polygon points="205,105 195,100 195,110" fill="#64748b"/>
+        <path d="M350 105 L380 105"><animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" begin="0.5s" repeatCount="indefinite"/></path><polygon points="380,105 370,100 370,110" fill="#64748b"/>
+        <path d="M525 105 L555 105"><animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" begin="1s" repeatCount="indefinite"/></path><polygon points="555,105 545,100 545,110" fill="#64748b"/>
+      </g>
+      <rect x="35" y="175" width="730" height="50" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+      <text x="400" y="195" text-anchor="middle" font-size="11" font-weight="600" fill="#94a3b8">📋 Validation Report</text>
+      <text x="400" y="213" text-anchor="middle" font-size="10" fill="#34d399">✓ All checks passed</text>
+      <text x="400" y="213" dx="120" text-anchor="middle" font-size="10" fill="#64748b">• 0 errors • 4 checks • Build OK</text>
+    </svg>
+  </div>
 
-  <g id="awaiting" transform="translate(430, 80)">
-    <circle cx="70" cy="30" r="25" fill="none" stroke="#db2777" stroke-width="3">
-      <animate attributeName="r" values="20;30;20" dur="1.5s" repeatCount="indefinite" />
-      <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite" />
-    </circle>
-    <rect width="140" height="60" rx="8" fill="url(#gradient3)" opacity="0.2"/>
-    <text x="70" y="35" text-anchor="middle" font-size="14" font-weight="bold" fill="#db2777">Awaiting</text>
-  </g>
-
-  <g id="executing" transform="translate(620, 80)">
-    <rect width="140" height="60" rx="8" fill="url(#gradient4)" opacity="0.2">
-      <animate attributeName="opacity" values="0.2;0.5;0.2" dur="1s" repeatCount="indefinite" />
-    </rect>
-    <text x="70" y="35" text-anchor="middle" font-size="14" font-weight="bold" fill="#4f46e5">Executing</text>
-  </g>
-
-  <g id="validated" transform="translate(430, 200)">
-    <rect width="140" height="60" rx="8" fill="url(#gradient5)" opacity="0.2"/>
-    <path d="M60 30 L65 35 L75 25" stroke="#059669" stroke-width="3" fill="none">
-      <animate attributeName="stroke-dasharray" from="0,100" to="100,100" dur="0.5s" begin="2s" fill="freeze" />
-    </path>
-    <text x="70" y="35" text-anchor="middle" font-size="14" font-weight="bold" fill="#059669">Validated</text>
-  </g>
-
-  <g id="closed" transform="translate(620, 200)">
-    <rect width="140" height="60" rx="8" fill="#6b7280" opacity="0.3"/>
-    <text x="70" y="35" text-anchor="middle" font-size="14" font-weight="bold" fill="#6b7280">Closed</text>
-  </g>
-
-  <!-- Arrows -->
-  <g stroke="#94a3b8" stroke-width="2" fill="none">
-    <path d="M190 110 L230 110">
-      <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="3s" repeatCount="indefinite" />
-    </path>
-    <polygon points="230,110 220,105 220,115" fill="#94a3b8"/>
-
-    <path d="M380 110 L420 110"/>
-    <polygon points="420,110 410,105 410,115" fill="#94a3b8"/>
-
-    <path d="M570 110 L610 110">
-      <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="3s" begin="1s" repeatCount="indefinite" />
-    </path>
-    <polygon points="610,110 600,105 600,115" fill="#94a3b8"/>
-
-    <path d="M690 140 L690 180 L650 195">
-      <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="3s" begin="2s" repeatCount="indefinite" />
-    </path>
-    <polygon points="650,195 655,185 655,200" fill="#94a3b8"/>
-
-    <path d="M570 200 L530 200"/>
-    <polygon points="530,200 540,195 540,205" fill="#94a3b8"/>
-
-    <!-- Feedback loop -->
-    <path d="M500 90 Q500 50 460 50 L440 50" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
-    <polygon points="440,50 450,45 450,55" fill="#f59e0b"/>
-    <text x="470" y="45" font-size="10" fill="#f59e0b">Revisão</text>
-  </g>
-</svg>
-
-<!-- SVG 2: Approval Gate Animation -->
-<svg width="800" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-
-  <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e293b">🔒 Approval Gate</text>
-
-  <!-- Gate background -->
-  <rect x="200" y="80" width="400" height="140" rx="12" fill="#fef2f2" stroke="#ef4444" stroke-width="3"/>
-
-  <!-- Lock icon -->
-  <g transform="translate(370, 100)">
-    <rect x="10" y="30" width="40" height="30" rx="4" fill="#dc2626"/>
-    <path d="M20 30 V15 A10 10 0 0 1 40 15 V30" stroke="#dc2626" stroke-width="4" fill="none"/>
-    <animate attributeName="transform" values="translate(370,100); translate(370,105); translate(370,100)" dur="2s" repeatCount="indefinite"/>
-  </g>
-
-  <!-- Warning text -->
-  <text x="400" y="160" text-anchor="middle" font-size="14" fill="#dc2626" font-weight="bold">
-    ⚠️ Ação Requer Aprovação
-  </text>
-
-  <!-- Authorization phrases -->
-  <g transform="translate(400, 190)">
-    <rect x="-120" y="-15" width="240" height="30" rx="6" fill="#1a73e8" opacity="0.1">
-      <animate attributeName="opacity" values="0.1;0.3;0.1" dur="2s" repeatCount="indefinite"/>
-    </rect>
-    <text x="0" y="5" text-anchor="middle" font-size="12" fill="#1a73e8" font-family="monospace">
-      "implemente" | "execute o plano"
-    </text>
-  </g>
-
-  <!-- Pulsing ring -->
-  <circle cx="400" cy="150" r="80" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.3">
-    <animate attributeName="r" values="60;100;60" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite"/>
-  </circle>
-</svg>
-
-<!-- SVG 3: Delegation Flow -->
-<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-  <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e293b">👥 Safe Delegation Pattern</text>
-
-  <!-- Coordinator -->
-  <g transform="translate(350, 70)">
-    <rect width="100" height="50" rx="8" fill="#1a73e8" filter="url(#glow)"/>
-    <text x="50" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Coordinator</text>
-  </g>
-
-  <!-- Agent 1 -->
-  <g transform="translate(100, 180)">
-    <rect width="120" height="50" rx="8" fill="#10b981" opacity="0.8"/>
-    <text x="60" y="25" text-anchor="middle" font-size="12" fill="white">Agent 1</text>
-    <text x="60" y="40" text-anchor="middle" font-size="10" fill="white">Task A</text>
-    <animateTransform attributeName="transform" type="translate" values="100,180 110,180 100,180" dur="2s" repeatCount="indefinite"/>
-  </g>
-
-  <!-- Agent 2 -->
-  <g transform="translate(340, 180)">
-    <rect width="120" height="50" rx="8" fill="#f59e0b" opacity="0.8"/>
-    <text x="60" y="25" text-anchor="middle" font-size="12" fill="white">Agent 2</text>
-    <text x="60" y="40" text-anchor="middle" font-size="10" fill="white">Task B</text>
-    <animateTransform attributeName="transform" type="translate" values="340,180 350,180 340,180" dur="2s" begin="0.3s" repeatCount="indefinite"/>
-  </g>
-
-  <!-- Agent 3 -->
-  <g transform="translate(580, 180)">
-    <rect width="120" height="50" rx="8" fill="#8b5cf6" opacity="0.8"/>
-    <text x="60" y="25" text-anchor="middle" font-size="12" fill="white">Agent 3</text>
-    <text x="60" y="40" text-anchor="middle" font-size="10" fill="white">Task C</text>
-    <animateTransform attributeName="transform" type="translate" values="580,180 590,180 580,180" dur="2s" begin="0.6s" repeatCount="indefinite"/>
-  </g>
-
-  <!-- Results integration -->
-  <g transform="translate(350, 300)">
-    <rect width="100" height="50" rx="8" fill="#059669"/>
-    <text x="50" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="white">✅ Verify</text>
-  </g>
-
-  <!-- Arrows -->
-  <g stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)">
-    <line x1="400" y1="120" x2="160" y2="180"/>
-    <line x1="400" y1="120" x2="340" y2="180"/>
-    <line x1="400" y1="120" x2="580" y2="180"/>
-    <line x1="160" y1="230" x2="400" y2="300"/>
-    <line x1="400" y1="230" x2="400" y2="300"/>
-    <line x1="640" y1="230" x2="450" y2="300"/>
-  </g>
-
-  <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
-    </marker>
-  </defs>
-</svg>
-
-<!-- SVG 4: Validation Flow -->
-<svg width="800" height="350" viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
-  <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e293b">✅ Validation Pipeline</text>
-
-  <!-- Pipeline stages -->
-  <g transform="translate(50, 100)">
-    <!-- Stage 1 -->
-    <rect x="0" y="0" width="130" height="80" rx="8" fill="#dbeafe" stroke="#1a73e8" stroke-width="2"/>
-    <text x="65" y="35" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a73e8">Type Check</text>
-    <text x="65" y="55" text-anchor="middle" font-size="10" fill="#64748b">TypeScript</text>
-    <circle cx="110" cy="20" r="15" fill="#059669">
-      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
-    </circle>
-    <path d="M103 20 L107 24 L115 16" stroke="white" stroke-width="3" fill="none"/>
-  </g>
-
-  <g transform="translate(220, 100)">
-    <rect x="0" y="0" width="130" height="80" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
-    <text x="65" y="35" text-anchor="middle" font-size="12" font-weight="bold" fill="#d97706">Lint Check</text>
-    <text x="65" y="55" text-anchor="middle" font-size="10" fill="#64748b">ESLint</text>
-    <circle cx="110" cy="20" r="15" fill="#059669">
-      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.3s" repeatCount="indefinite"/>
-    </circle>
-    <path d="M103 20 L107 24 L115 16" stroke="white" stroke-width="3" fill="none"/>
-  </g>
-
-  <g transform="translate(390, 100)">
-    <rect x="0" y="0" width="130" height="80" rx="8" fill="#fce7f3" stroke="#db2777" stroke-width="2"/>
-    <text x="65" y="35" text-anchor="middle" font-size="12" font-weight="bold" fill="#db2777">Test Run</text>
-    <text x="65" y="55" text-anchor="middle" font-size="10" fill="#64748b">Vitest</text>
-    <circle cx="110" cy="20" r="15" fill="#059669">
-      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.6s" repeatCount="indefinite"/>
-    </circle>
-    <path d="M103 20 L107 24 L115 16" stroke="white" stroke-width="3" fill="none"/>
-  </g>
-
-  <g transform="translate(560, 100)">
-    <rect x="0" y="0" width="130" height="80" rx="8" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
-    <text x="65" y="35" text-anchor="middle" font-size="12" font-weight="bold" fill="#059669">Build</text>
-    <text x="65" y="55" text-anchor="middle" font-size="10" fill="#64748b">Production</text>
-    <circle cx="110" cy="20" r="15" fill="#059669">
-      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.9s" repeatCount="indefinite"/>
-    </circle>
-    <path d="M103 20 L107 24 L115 16" stroke="white" stroke-width="3" fill="none"/>
-  </g>
-
-  <!-- Flow animation -->
-  <path d="M180 140 L210 140" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrowhead2)">
-    <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" repeatCount="indefinite"/>
-  </path>
-  <path d="M350 140 L380 140" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrowhead2)">
-    <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" begin="0.5s" repeatCount="indefinite"/>
-  </path>
-  <path d="M520 140 L550 140" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrowhead2)">
-    <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" begin="1s" repeatCount="indefinite"/>
-  </path>
-
-  <defs>
-    <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
-    </marker>
-  </defs>
-
-  <!-- Success indicator -->
-  <g transform="translate(720, 120)">
-    <circle cx="20" cy="20" r="20" fill="#059669">
-      <animate attributeName="r" values="15;20;15" dur="2s" repeatCount="indefinite"/>
-    </circle>
-    <path d="M12 20 L17 25 L28 14" stroke="white" stroke-width="3" fill="none"/>
-  </g>
-
-  <!-- Final report -->
-  <rect x="50" y="250" width="700" height="60" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
-  <text x="400" y="275" text-anchor="middle" font-size="12" font-weight="bold" fill="#475569">📋 Validation Report</text>
-  <text x="400" y="295" text-anchor="middle" font-size="10" fill="#64748b">✅ All checks passed • 0 errors • 4 checks completed</text>
-</svg>
-
+  <p style="text-align: center; color: #64748b; margin-top: 2rem;">
+    Advanced AI Pipeline Architecture © 2024
+  </p>
 </body>
 </html>
