@@ -74,7 +74,10 @@ export function AnimatedPipeline({ activeNode, isProcessing, onNodeClick }: Anim
               className="flex flex-col items-center gap-2"
               onMouseEnter={() => setHoveredNode(node.id)}
               onMouseLeave={() => setHoveredNode(null)}
-              onClick={() => onNodeClick?.(node.id)}
+              role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onNodeClick?.(node.id); } }}
+                  onClick={() => onNodeClick?.(node.id)}
             >
               {/* Nodo */}
               <div

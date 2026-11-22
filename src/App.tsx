@@ -226,6 +226,9 @@ export default function App() {
               return (
                 <div
                   key={node.id}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedNode(prev => prev === node.id ? null : node.id); } }}
                   onClick={() => setSelectedNode(prev => prev === node.id ? null : node.id)}
                   style={{
                     padding: '1.75rem',

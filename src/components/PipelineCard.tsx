@@ -24,7 +24,10 @@ export function PipelineCard({ node, isActive, isSelected, onHover, onClick, ind
         ${node.color} bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm`}
       onMouseEnter={() => onHover(node.id)}
       onMouseLeave={() => onHover(null)}
-      onClick={() => onClick(node.id)}
+      role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(node.id); } }}
+                  onClick={() => onClick(node.id)}
     >
       {/* Badge de ordem */}
       <div className="absolute -top-3 -right-3 w-8 h-8 bg-gray-900 border-2 border-gray-600 rounded-full flex items-center justify-center text-sm font-bold text-gray-300">
