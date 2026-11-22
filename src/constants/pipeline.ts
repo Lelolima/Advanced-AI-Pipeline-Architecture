@@ -1,8 +1,14 @@
+import type { ComponentType } from 'react';
+
 export interface PipelineNode {
   id: string;
   title: string;
   description: string;
   color: string;
+}
+
+export interface PipelineNodeWithIcon extends PipelineNode {
+  icon: ComponentType<{ className?: string }>;
 }
 
 export const PIPELINE_NODES: PipelineNode[] = [

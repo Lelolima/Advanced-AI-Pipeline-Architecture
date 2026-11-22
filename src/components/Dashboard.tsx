@@ -295,9 +295,9 @@ export function Dashboard({ refreshInterval = 30000, onRefresh }: DashboardProps
               </div>
               <div className="flex items-center gap-4">
                 <ProgressBar
-                  value={model.gpu}
+                  value={model.gpu ?? 0}
                   size="sm"
-                  color={model.gpu > 80 ? 'red' : model.gpu > 50 ? 'orange' : 'green'}
+                  color={(model.gpu ?? 0) > 80 ? 'red' : (model.gpu ?? 0) > 50 ? 'orange' : 'green'}
                   showValue={false}
                   animated={false}
                 />

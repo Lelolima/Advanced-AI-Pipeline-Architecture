@@ -13,8 +13,9 @@ import type {
   SystemStatus,
   DashboardMetrics,
   SystemConfig,
-  DEFAULT_CONFIG,
+  EntityType,
 } from '../types';
+import { DEFAULT_CONFIG } from '../types';
 
 // ============================================
 // API Service - HTTP Client
@@ -76,7 +77,7 @@ class ApiService {
     });
   }
 
-  async upload<T>(endpoint: string, file: File, additionalData?: Record<string, unknown>): Promise<T> {
+  async upload<T>(endpoint: string, file: File, additionalData?: object): Promise<T> {
     const formData = new FormData();
     formData.append('image', file);
     if (additionalData) {
@@ -224,14 +225,14 @@ class TextAnalysisService {
 
   private extractEntities(text: string): Array<{
     text: string;
-    type: string;
+    type: EntityType;
     confidence: number;
     startOffset: number;
     endOffset: number;
   }> {
     const entities: Array<{
       text: string;
-      type: string;
+      type: EntityType;
       confidence: number;
       startOffset: number;
       endOffset: number;
