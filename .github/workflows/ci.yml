@@ -1,91 +1,51 @@
-name: CI/CD Pipeline
+name: CI
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   frontend:
-    name: Frontend Checks
+    name: Frontend (lint, tipos, testes, build)
     runs-on: ubuntu-latest
-
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '20'
           cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Type Check
-        run: npx tsc --noEmit
-
-      - name: Build
-        run: npm run build
+      - run: npm ci
+      - run: npm run lint
+      - run: npx tsc --noEmit
+      - run: npm run test:run
+      - run: npm run build
+      - name: npm audit (dependências de produção)
+        run: npm audit --omit=dev --audit-level=high
 
   backend:
-    name: Backend Checks
+    name: Backend (flake8, pytest)
     runs-on: ubuntu-latest
-
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: backend
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: '3.11'
           cache: 'pip'
-
-      - name: Install dependencies
-        run: |
-          cd backend
-          pip install -r requirements.txt
-
-      - name: Lint Python
-        run: |
-          pip install flake8
-          flake8 backend/src --max-line-length=100
-
-      - name: Run Python Tests
-        run: |
-          cd backend
-          python -m pytest tests/ -v || echo "No tests yet"
-
-      - name: Type Check (mypy)
-        run: |
-          pip install mypy
-          mypy backend/src --ignore-missing-imports || echo "Mypy not fully configured"
-
-  security:
-    name: Security Scan
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Audit npm dependencies
-        run: npm audit --audit-level=moderate || echo "Audit found issues"
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Audit Python dependencies
-        run: |
-          pip install safety
-          safety check || echo "Safety found issues"
+          cache-dependency-path: backend/requirements.txt
+      - run: pip install -r requirements.txt
+      - run: flake8 src main.py tests --max-line-length=100
+      - run: python -m pytest -v
