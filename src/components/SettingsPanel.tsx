@@ -69,6 +69,8 @@ export function SettingsPanel({ settings: userSettings, onSave, onClose }: Setti
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div
         className="bg-slate-900 rounded-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden border border-slate-700 shadow-2xl"
+        role="presentation"
+        onKeyDown={e => e.stopPropagation()}
         onClick={e => e.stopPropagation()}
       >
         {/* Header */}
@@ -114,9 +116,9 @@ export function SettingsPanel({ settings: userSettings, onSave, onClose }: Setti
             <div className="space-y-6">
               {/* Theme Selector */}
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-3">
+                <span className="block text-sm font-medium text-slate-300 mb-3">
                   🎨 Tema da Interface
-                </label>
+                </span>
                 <div className="flex gap-3">
                   {[
                     { value: 'dark', label: 'Escuro', icon: '🌙' },
@@ -142,9 +144,9 @@ export function SettingsPanel({ settings: userSettings, onSave, onClose }: Setti
 
               {/* Language Selector */}
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-3">
+                <span className="block text-sm font-medium text-slate-300 mb-3">
                   🌐 Idioma / Language
-                </label>
+                </span>
                 <div className="flex gap-2">
                   {[
                     { value: 'pt', label: 'Português', flag: '🇧🇷' },
@@ -197,10 +199,11 @@ export function SettingsPanel({ settings: userSettings, onSave, onClose }: Setti
             <div className="space-y-6">
               {/* API URL */}
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">
+                <label htmlFor="settings-api-url" className="block text-sm font-medium text-slate-300 mb-2">
                   🌐 URL da API
                 </label>
                 <input
+                  id="settings-api-url"
                   type="text"
                   value={settings.apiUrl}
                   onChange={e => updateSetting('apiUrl', e.target.value)}
@@ -214,10 +217,11 @@ export function SettingsPanel({ settings: userSettings, onSave, onClose }: Setti
 
               {/* Timeout */}
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">
+                <label htmlFor="settings-timeout" className="block text-sm font-medium text-slate-300 mb-2">
                   ⏱️ Timeout (ms)
                 </label>
                 <input
+                  id="settings-timeout"
                   type="range"
                   min="5000"
                   max="60000"
@@ -235,9 +239,9 @@ export function SettingsPanel({ settings: userSettings, onSave, onClose }: Setti
 
               {/* Max Retries */}
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">
+                <span className="block text-sm font-medium text-slate-300 mb-2">
                   🔄 Tentativas Máximas
-                </label>
+                </span>
                 <div className="flex gap-2">
                   {[0, 1, 2, 3, 5].map(retries => (
                     <button

@@ -9,6 +9,13 @@ interface AnalysisResult {
   message: string;
 }
 
+interface IntegratedAnalysis {
+  combined_confidence?: number;
+  visual_weight?: number;
+  text_weight?: number;
+  recommendation?: string;
+}
+
 interface Prediction {
   label: string;
   confidence: number;
@@ -154,6 +161,8 @@ export function AnalysisPanel() {
     );
   };
 
+  const integrated = result?.data?.integrated as IntegratedAnalysis | undefined;
+
   const renderTextAnalysis = (data: Record<string, unknown>) => {
     if (!data.sentiment) return null;
 
@@ -176,13 +185,13 @@ export function AnalysisPanel() {
         </div>
         <div className="bg-gray-800 rounded-lg p-4">
           <div className="text-sm text-gray-400 mb-1">Palavras</div>
-          <div className="text-lg font-bold text-purple-400">{data.word_count || 0}</div>
+          <div className="text-lg font-bold text-purple-400">{Number(data.word_count) || 0}</div>
         </div>
         <div className="bg-gray-800 rounded-lg p-4">
           <div className="text-sm text-gray-400 mb-1">Frases</div>
-          <div className="text-lg font-bold text-orange-400">{data.sentence_count || 0}</div>
+          <div className="text-lg font-bold text-orange-400">{Number(data.sentence_count) || 0}</div>
         </div>
-        {data.entities && Array.isArray(data.entities) && data.entities.length > 0 && (
+        {Array.isArray(data.entities) && data.entities.length > 0 && (
           <div className="col-span-2 bg-gray-800 rounded-lg p-4">
             <div className="text-sm text-gray-400 mb-2">Entidades Detectadas</div>
             <div className="flex flex-wrap gap-2">
@@ -221,11 +230,12 @@ export function AnalysisPanel() {
         <div className="space-y-6">
           {/* Input de Texto */}
           <div>
-            <label className="block text-sm font-medium mb-2 text-gray-300 flex items-center gap-2">
+            <label htmlFor="analysis-text-input" className="block text-sm font-medium mb-2 text-gray-300 flex items-center gap-2">
               <FileText className="w-4 h-4" />
               Análise de Texto (LLM/PLN)
             </label>
             <textarea
+              id="analysis-text-input"
               value={textInput}
               onChange={(e) => setTextInput(e.target.value)}
               placeholder="Digite ou cole seu texto aqui para análise de sentimento, entidades e estatísticas..."
@@ -236,10 +246,10 @@ export function AnalysisPanel() {
 
           {/* Input de Imagem */}
           <div>
-            <label className="block text-sm font-medium mb-2 text-gray-300 flex items-center gap-2">
+            <span className="block text-sm font-medium mb-2 text-gray-300 flex items-center gap-2">
               <Image className="w-4 h-4" />
               Análise de Imagem (CNN)
-            </label>
+            </span>
             <div className="flex gap-4">
               <label className="flex-1 cursor-pointer group">
                 <div className="p-6 bg-gray-900/50 rounded-xl border-2 border-dashed border-gray-600 group-hover:border-purple-500 transition-all text-center hover:bg-gray-900">
@@ -376,10 +386,10 @@ export function AnalysisPanel() {
 
               {result.data && (
                 <>
-                  {result.data.sentiment && renderTextAnalysis(result.data)}
-                  {result.data.predictions && renderPredictionBars(result.data.predictions as Prediction[])}
+                  {Boolean(result.data.sentiment) && renderTextAnalysis(result.data)}
+                  {Boolean(result.data.predictions) && renderPredictionBars(result.data.predictions as Prediction[])}
 
-                  {result.data.integrated && (
+                  {integrated && (
                     <div className="mt-4 p-4 bg-purple-900/20 border border-purple-500/50 rounded-xl">
                       <h4 className="text-sm font-semibold text-purple-300 mb-3 flex items-center gap-2">
                         <Brain className="w-4 h-4" />
@@ -389,32 +399,32 @@ export function AnalysisPanel() {
                         <div className="flex justify-between">
                           <span className="text-gray-400">Confiança Combinada:</span>
                           <span className="text-purple-300 font-medium">
-                            {typeof result.data.integrated.combined_confidence === 'number'
-                              ? `${(result.data.integrated.combined_confidence * 100).toFixed(1)}%`
+                            {typeof integrated.combined_confidence === 'number'
+                              ? `${(integrated.combined_confidence * 100).toFixed(1)}%`
                               : 'N/A'}
                           </span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-gray-400">Peso Visual:</span>
                           <span className="text-purple-300">
-                            {typeof result.data.integrated.visual_weight === 'number'
-                              ? `${(result.data.integrated.visual_weight * 100).toFixed(0)}%`
+                            {typeof integrated.visual_weight === 'number'
+                              ? `${(integrated.visual_weight * 100).toFixed(0)}%`
                               : 'N/A'}
                           </span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-gray-400">Peso Textual:</span>
                           <span className="text-purple-300">
-                            {typeof result.data.integrated.text_weight === 'number'
-                              ? `${(result.data.integrated.text_weight * 100).toFixed(0)}%`
+                            {typeof integrated.text_weight === 'number'
+                              ? `${(integrated.text_weight * 100).toFixed(0)}%`
                               : 'N/A'}
                           </span>
                         </div>
-                        {result.data.integrated.recommendation && (
+                        {integrated.recommendation && (
                           <div className="mt-3 pt-3 border-t border-purple-700/50">
                             <span className="text-gray-400 block mb-1">Recomendação:</span>
                             <span className="text-purple-200 text-sm">
-                              {result.data.integrated.recommendation}
+                              {integrated.recommendation}
                             </span>
                           </div>
                         )}

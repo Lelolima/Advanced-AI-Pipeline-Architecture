@@ -123,7 +123,7 @@ Sistema profissional de análise multimodal com arquitetura enterprise-grade.
 ## 🚀 Tecnologias
 
 - **Frontend:** React 18 • TypeScript • Vite • Tailwind CSS
-- **Backend:** FastAPI • TensorFlow • PyTorch
+- **Backend:** FastAPI (API com modelos simulados) • TensorFlow (módulos de treino opcionais)
 - **Modelos:** CNN (EfficientNet) • LLM (BERT) • RNN (LSTM) • Fusion Model
 
 ---
@@ -176,31 +176,67 @@ src/
 - Histórico de análises
 - Status dos modelos
 
-## 🛠️ Instalação
+## ⚠️ Estado real da implementação
+
+Auditoria de 2026-11-22 (ver `docs/auditoria/AUDITORIA-2026-11-22.md`):
+
+- **A API (`backend/main.py`) usa modelos simulados.** A classificação de imagem é aleatória
+  (`MockCNNModel`), a análise de texto é baseada em listas de palavras (`MockLLMModel`) e a
+  "imagem" da análise multimodal é um valor fixo. Toda resposta traz `"(mock)"` no campo `model`.
+- Os módulos em `backend/src/` (CNN EfficientNet, LLM, RNA) são esqueletos de treino que **não
+  estão ligados à API**; partes do LLM levantam `NotImplementedError`.
+- O componente `Dashboard.tsx` (não usado pela `App.tsx` atual) exibe **métricas fictícias**
+  (`MOCK_METRICS`, `MOCK_STATUS`) com variação aleatória — não são medições reais.
+
+## 🛠️ Instalação e execução
+
+Requisitos: Node.js 20+, Python 3.11+.
 
 ```bash
-# Instalar dependências
-npm install
+# Frontend
+npm ci
+npm run dev            # http://localhost:5173
 
-# Iniciar desenvolvimento
-npm run dev
+# Backend (API com modelos simulados)
+cd backend
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+python main.py         # http://localhost:8000  (docs em /docs)
 
-# Build de produção
-npm run build
-
-# Preview da build
-npm run preview
+# Opcional: dependências pesadas dos módulos de ML em backend/src
+pip install -r requirements-ml.txt
 ```
+
+## 🧪 Testes e qualidade
+
+```bash
+npm run lint           # ESLint (sem --fix; use npm run lint:fix para corrigir)
+npx tsc --noEmit       # checagem de tipos
+npm run test:run       # Vitest
+npm run build          # build de produção
+
+cd backend
+flake8 src main.py tests --max-line-length=100
+python -m pytest -v
+```
+
+O CI (`.github/workflows/ci.yml`) executa exatamente esses passos em push/PR para `main`.
+
+## 🔐 Variáveis de ambiente
+
+Nenhuma variável é obrigatória hoje. `.env.example` lista opções futuras (comentadas).
+A URL da API no frontend está fixa em `http://localhost:8000` (`src/App.tsx`) e pode ser
+alterada no painel de configurações.
 
 ## 📦 Scripts
 
-| Comando | Descrição |
-|---------|-----------|
-| `npm run dev` | Inicia servidor de desenvolvimento |
-| `npm run build` | Build de produção |
+| Script | Descrição |
+|--------|-----------|
+| `npm run dev` | Servidor de desenvolvimento |
+| `npm run build` | `tsc` + build de produção |
 | `npm run preview` | Preview da build |
-| `npm run lint` | ESLint |
-| `npm run test` | Tests com Vitest |
+| `npm run lint` / `lint:fix` | ESLint |
+| `npm run test` / `test:run` | Vitest (watch / execução única) |
 
 ## 🔧 Configuração
 

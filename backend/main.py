@@ -10,7 +10,7 @@ Implementa endpoints para:
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 import uvicorn
 
 app = FastAPI(title="AI Pipeline API", version="1.0.0")
@@ -35,7 +35,7 @@ class ImageAnalysisRequest(BaseModel):
 
 class MultimodalRequest(BaseModel):
     text: str
-    image_url: str = None
+    image_url: Optional[str] = None
 
 
 class AnalysisResult(BaseModel):
@@ -227,7 +227,7 @@ async def analyze_image(image: UploadFile = File(...)):
     - **image**: Arquivo de imagem (JPEG, PNG)
     - Retorna: classificações, features extraídas
     """
-    if not image.content_type.startswith("image/"):
+    if not (image.content_type or "").startswith("image/"):
         raise HTTPException(status_code=400, detail="Arquivo não é uma imagem")
 
     try:
@@ -266,7 +266,7 @@ async def analyze_multimodal(request: MultimodalRequest):
 
         # Integração
         if text_result and visual_result:
-            integrated = multimodal_model.integrate(text_result, visual_result)
+            integrated = multimodal_model.integrate(visual_result, text_result)
             return AnalysisResult(
                 status="success",
                 data={

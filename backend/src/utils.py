@@ -15,9 +15,6 @@ from pathlib import Path
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-import numpy as np
-import matplotlib.pyplot as plt
-
 
 def setup_logging(
     log_dir: str = "logs",
@@ -120,6 +117,8 @@ def plot_training_history(
     if metrics is None:
         metrics = ["loss", "accuracy"]
 
+    import matplotlib.pyplot as plt  # import tardio: dependência pesada e opcional
+
     plt.figure(figsize=(15, 5))
 
     for i, metric in enumerate(metrics):
@@ -167,14 +166,14 @@ def generate_report(
     os.makedirs(output_dir, exist_ok=True)
     report_path = os.path.join(output_dir, f"report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md")
 
-    with open(report_path, "w") as f:
+    with open(report_path, "w", encoding="utf-8") as f:
         f.write("# Relatório de Treinamento - AI Pipeline Multimodal\n\n")
         f.write(f"Gerado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n\n")
 
         f.write("## Resumo\n\n")
         for key, value in results.items():
             safe_key = sanitize_for_markdown(str(key))
-            safe_value = sanitize_for_markdown(str(value) if not isinstance(value, (int, float)) else str(value))
+            safe_value = sanitize_for_markdown(str(value))
             f.write(f"- **{safe_key}**: {safe_value}\n")
 
         f.write("\n## Detalhes\n\n")

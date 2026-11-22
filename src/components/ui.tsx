@@ -138,10 +138,14 @@ export function Modal({ isOpen, onClose, title, children, footer }: ModalProps) 
   return (
     <div
       className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      role="presentation"
+      onKeyDown={e => { if (e.key === 'Escape') onClose(); }}
       onClick={onClose}
     >
       <div
         className="bg-slate-900 rounded-2xl w-full max-w-lg max-h-[80vh] overflow-hidden border border-slate-700 shadow-2xl animate-scale-in"
+        role="presentation"
+        onKeyDown={e => e.stopPropagation()}
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-center justify-between p-6 border-b border-slate-700">

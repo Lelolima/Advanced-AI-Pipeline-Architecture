@@ -8,7 +8,7 @@ Este módulo contém:
 - Embeddings de texto
 """
 
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from typing import Dict, List, Any
 import numpy as np
 

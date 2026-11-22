@@ -8,11 +8,12 @@ Este módulo contém funções para:
 """
 
 import numpy as np
-from pathlib import Path
-from typing import Tuple, List, Dict, Any
+from typing import Tuple, Dict, Any
 
 
-def load_images_from_directory(directory: str, target_size: Tuple[int, int] = (224, 224)) -> np.ndarray:
+def load_images_from_directory(
+    directory: str, target_size: Tuple[int, int] = (224, 224)
+) -> np.ndarray:
     """
     Carrega imagens de um diretório e as redimensiona para o tamanho especificado.
 

@@ -8,14 +8,15 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "build:check": "tsc --noEmit && eslint . && prettier --check src/**/*.{ts,tsx}",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "preview": "vite preview",
     "dev:all": "concurrently \"npm run dev\" \"cd backend && python main.py\"",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
-    "test:run": "vitest run"
+    "test:run": "vitest run",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",
