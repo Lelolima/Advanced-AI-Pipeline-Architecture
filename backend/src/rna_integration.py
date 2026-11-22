@@ -7,7 +7,6 @@ Este módulo contém:
 - Geração de insights consolidados
 """
 
-import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.layers import Concatenate, Dense, Dropout
 from tensorflow.keras.metrics import Precision, Recall
